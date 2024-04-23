@@ -1,7 +1,5 @@
-
 import contatos
 from os import system
-
 
 mensagem_principal = """AGENDA DE CONTATOS
 ----------------------------------
@@ -14,7 +12,7 @@ ESCOLHA:
 """
 
 
-def prompt_adiciona_contato(): 
+def prompt_adiciona_contato():
   nome = input("NOME: ")
   telefone = input("TELEFONE: ")
 
@@ -27,7 +25,7 @@ def prompt_ler_contato():
 
   telefone = contatos.ler_contato(nome)
   if telefone:
-     print(f"{nome}: {telefone}")
+    print(f"{nome}: {telefone}")
   else:
     resultados = contatos.pesquisa_contatos(nome)
     if resultados:
@@ -45,7 +43,8 @@ def prompt_atualiza_contato():
         f"Digite o novo nome (Deixe em branco para manter {nome_anterior}): "
     ).strip()
     novo_telefone = input(
-        f"Digite o novo telefone para o contato (Deixe em branco para manter {telefone_anterior}): ").strip()
+        f"Digite o novo telefone para o contato (Deixe em branco para manter {telefone_anterior}): "
+    ).strip()
 
     if not novo_telefone:
       novo_telefone = telefone_anterior
@@ -81,6 +80,7 @@ def main():
     prompt_apaga_contato()
   else:
     print("Escolha inválida, escolha novamente.")
+
 
 while True:
   system('clear')
